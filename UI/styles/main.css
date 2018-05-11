@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+	height: 100vh;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+/* landing page */
+#landing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#landing > h1, #landing > a {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#landing > h1 {
+    font-size: 2.72vw;
+}
+
+#landing > a {
+    margin-top: 10vh;
+    font-size: 1.72vw;
+}
+
+/* main layout */
+.container {
+    display: grid;
+    height: 100%;
+    grid-template: 20vh auto 10vh / repeat(12, 1fr);
+    grid-gap: 1px;
+    grid-template-areas: 
+        "h h h h h h h h h h h h"
+        "a a a c c c c c c c c c"
+        "f f f f f f f f f f f f";
+}
+
+.header {
+    grid-area: h;
+    background: navajowhite;
+}
+
+.aside {
+    grid-area: a;
+    background: rgb(250, 187, 187);
+}
+
+.content {
+    grid-area: c;
+}
+
+.footer {
+    grid-area: f;
+    background: navajowhite;
+}
+
+/* header styling */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.header > ul > li {
+    display: inline;
+    margin: 0 1.2vw;
+}
+
+/* content styling */
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5vw;
+    overflow: scroll;
+}
+
+.content > .heading > p {
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
+.content > .heading > p > span {
+    font-size: 15px;
+}
+
+.content > .request {
+    border: 1px solid navajowhite;
+    width: 50vw;
+    margin: 5px;
+    padding: 5px 15px;
+}
+
+.content > .request-detail {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.content > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.content > form > input {
+    width: 50vw;
+    height: 5vh;
+    margin: 10px 5px;
+    padding: 20px;
+}
+
+.content > form > input[type=textarea] {
+    width: 50vw;
+    height: 15vh;
+    margin: 10px 5px;
+    padding: 20px;
+}
+
+#filter {
+    width: 50vw;
+    height: 5vh;
+    margin: 10px 5px;
+    padding: 20px;
+}
+
+/* scrollbar styling */
+.content::-webkit-scrollbar {
+	width: .4em;
+}
+
+.content::-webkit-scrollbar-thumb {
+	background-color: navajowhite;
+  	outline: 1px solid navajowhite;
+  	border-radius: 5px;
+}
+
+/* aside styling */
+.aside > ul {
+    text-align: left;
+	padding: 0;
+}
+
+.aside > ul > li {
+    list-style: none;
+	font-size: 1.2em;
+	height: 50px;
+	padding: 10px;
+}
+
+.aside > ul > li:hover {
+    background-color: navajowhite;
+	color: white;
+	cursor: pointer;
+	opacity: 1.0;
+}
