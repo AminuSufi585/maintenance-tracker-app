@@ -1,13 +1,17 @@
-import http from 'http';
-import assert from 'assert';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import server from '../lib/index.js';
 
-import '../lib/index.js';
+const should = chai.should();
+chai.use(chaiHttp);
 
-describe('Test Server Setup', () => {
+describe('Test Express Server Setup', () => {
     it('should return 200', done => {
-        http.get('http://127.0.0.1:3000', res => {
-            assert.equal(200, res.statusCode);
-            done();
-        });
+        chai.request(server)
+            .get('/')
+            .end((err, res) => {
+                res.should.have.status(200);
+                done();
+            });
     });
 });
