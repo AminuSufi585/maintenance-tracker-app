@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "nodemon lib/index.js --exec babel-node",
-    "build": "babel lib -d dist",
+    "build": "babel lib --out-dir dist",
     "serve": "node dist/index.js",
     "test": "mocha --require babel-register"
   },
