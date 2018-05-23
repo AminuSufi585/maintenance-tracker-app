@@ -66,3 +66,30 @@ describe('/GET/:id request', () => {
       });
   });
 });
+
+describe('/POST/:id request', () => {
+  it('should UPDATE a request', (done) => {
+    const request = {
+      id: Math.random().toString(16).slice(-12),
+      title: 'Repair of wooden chairs',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aperiam!',
+      pic: 'http://placehold.it/150/771796',
+      made_by: 'Abubakar',
+      date: new Date(),
+    };
+    chai.request(server)
+      .put(`/api/v1/users/requests/${request.id}`)
+      .send({
+        id: request.id,
+        title: 'Repair of wooden chairs',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aperiam!',
+        pic: 'http://placehold.it/150/771796',
+        made_by: 'Abubakar',
+        date: request.date,
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        done();
+      });
+  });
+});
