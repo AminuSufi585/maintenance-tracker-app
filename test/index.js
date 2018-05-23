@@ -27,6 +27,26 @@ describe('/GET requests', () => {
   });
 });
 
+describe('/POST request', () => {
+  it('should POST a request', (done) => {
+    const request = {
+      id: Math.random().toString(16).slice(-12),
+      title: 'Repair of wooden chairs',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aperiam!',
+      pic: 'http://placehold.it/150/771796',
+      made_by: 'Abubakar',
+      date: new Date(),
+    };
+    chai.request(server)
+      .post('/api/v1/users/requests')
+      .send(request)
+      .end((err, res) => {
+        res.should.have.status(201);
+        done();
+      });
+  });
+});
+
 describe('/GET/:id request', () => {
   it('should GET a particular request', (done) => {
     const request = {
