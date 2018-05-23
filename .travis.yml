@@ -6,6 +6,10 @@ language: node_js
 node_js:
   - "6.11.3"
 
+env:
+  - NODE_ENV=TEST
+
 script:
   - npm install
   - npm run test
+  - npm run build
