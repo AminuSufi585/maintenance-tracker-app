@@ -7,7 +7,7 @@ node_js:
   - "6.11.3"
 
 env:
-  - NODE_ENV=TEST
+  - NODE_ENV=test
 
 script:
   - npm install
